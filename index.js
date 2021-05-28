@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-//change the next line, make use of .env
+const logger = require('./middleware/logger.middleware');
 const { DB, PORT } = require('./config.json');
 
 const app = express();
@@ -16,8 +16,12 @@ mongoose.connect(DB, {
 
 //middleware
 app.use(express.json());
+app.use(logger);
 
 //routes
+app.get('/', (req, res) => {
+    res.end("hello world");
+});
 
 app.listen(PORT, () => {
     console.log(`server running at http://localhost:${PORT}`);

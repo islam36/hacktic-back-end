@@ -16,6 +16,11 @@ const userSchema = new mongoose.Schema({
     structure: {
         type: String,
         required: true
+    },
+    assignedTasks: [mongoose.SchemaTypes.ObjectId],
+    score: {
+        type: Number,
+        default: 0
     }
 });
 
