@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    assignedTasks: [mongoose.SchemaTypes.ObjectId],
+    assignedTasks: [mongoose.Schema.ObjectId],
     score: {
         type: Number,
         default: 0
