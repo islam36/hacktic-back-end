@@ -4,4 +4,5 @@ module.exports = {
     REL: 'REL',
     DEV: 'DEV',
     ETVC: 'ETVC',
+    RH: 'RH'
 }

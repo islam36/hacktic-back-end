@@ -13,6 +13,10 @@ const eventSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
+    members: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    }],
     tasks: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'task'
