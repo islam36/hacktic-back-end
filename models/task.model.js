@@ -10,7 +10,8 @@ const taskSchema = new mongoose.Schema({
         required: true
     },
     assignedTo: {
-        type: mongoose.SchemaTypes.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user',
         default: null
     },
     deadLine: {
@@ -31,3 +32,5 @@ const taskSchema = new mongoose.Schema({
         required: true,
     }
 });
+
+module.exports = mongoose.model('task', taskSchema);

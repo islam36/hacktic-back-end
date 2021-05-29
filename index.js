@@ -4,6 +4,7 @@ const logger = require('./middleware/logger.middleware');
 const authRouter = require('./routes/auth.route.js');
 const usersRouter = require('./routes/users.route.js');
 const tasksRouter = require('./routes/tasks.route.js');
+const eventRouter = require('./routes/events.route.js');
 const { DB, PORT } = require('./config.json');
 
 const app = express();
@@ -15,7 +16,7 @@ mongoose.connect(DB, {
     console.log("connected to the database");
 }).catch((err) => {
     console.log("error while connecting to database: ", err);
-})
+});
 
 //middleware
 app.use(express.json());
@@ -28,7 +29,8 @@ app.get('/', (req, res) => {
 
 app.use('/', authRouter);
 app.use('/users', usersRouter);
-app.use('/tasks', )
+app.use('/tasks', tasksRouter);
+app.use('/events', eventRouter);
 
 app.listen(PORT, () => {
     console.log(`server running at http://localhost:${PORT}`);

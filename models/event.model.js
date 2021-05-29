@@ -13,7 +13,10 @@ const eventSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    tasks: [mongoose.SchemaTypes.ObjectId]
+    tasks: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'task'
+    }]
 });
 
 module.exports = mongoose.model('event', eventSchema);

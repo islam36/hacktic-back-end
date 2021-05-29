@@ -17,7 +17,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    assignedTasks: [mongoose.Schema.ObjectId],
+    assignedTasks: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'task'
+    }],
     score: {
         type: Number,
         default: 0
