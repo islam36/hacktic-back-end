@@ -5,6 +5,7 @@ const authRouter = require('./routes/auth.route.js');
 const usersRouter = require('./routes/users.route.js');
 const tasksRouter = require('./routes/tasks.route.js');
 const eventRouter = require('./routes/events.route.js');
+const leaderboardRouter = require('./routes/leaderboard.route.js');
 const { DB, PORT } = require('./config.json');
 
 const app = express();
@@ -31,6 +32,7 @@ app.use('/', authRouter);
 app.use('/users', usersRouter);
 app.use('/tasks', tasksRouter);
 app.use('/events', eventRouter);
+app.use('/leaderboard', leaderboardRouter);
 
 app.listen(PORT, () => {
     console.log(`server running at http://localhost:${PORT}`);
